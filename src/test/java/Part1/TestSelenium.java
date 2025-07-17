@@ -9,21 +9,20 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class FirstSeleniumTest {
-
+public class TestSelenium {
     WebDriver driver;
 
     @BeforeClass
-    public void setUp() {
+    public void setUp(){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
+    //@beforeClass folosita inainte ca browserul sa deschida pagina. Setam ca driver sa fie ChromeDriver, iar imaginea sa fie maximizata;
 
     @Test
-    public void testLoggingIntoApplication() throws InterruptedException {
-        Thread.sleep(2000); // Așteaptă ca pagina să se încarce (temporar)
-
+    public void testLogin() throws InterruptedException {
+        Thread.sleep(2000);
         WebElement username = driver.findElement(By.name("username"));
         username.sendKeys("Admin");
 
@@ -33,16 +32,19 @@ public class FirstSeleniumTest {
         WebElement loginButton = driver.findElement(By.tagName("button"));
         loginButton.click();
 
-        Thread.sleep(2000); // Așteaptă ca pagina să afișeze dashboard-ul
-
-        String actualResult = driver.findElement(By.tagName("h6")).getText();
+        Thread.sleep(2000);
+        WebElement dashboardText = driver.findElement(By.tagName("h6"));
+        String actualResult = dashboardText.getText();
         String expectedResult = "Dashboard";
-
         Assert.assertEquals(actualResult, expectedResult);
+
     }
 
     @AfterClass
-    public void tearDown() {
-        driver.quit();
+    public void afterOpen(){
+        //driver.quit();
+
     }
+
+
 }
