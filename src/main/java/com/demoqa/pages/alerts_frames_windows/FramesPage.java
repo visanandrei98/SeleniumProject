@@ -14,6 +14,10 @@ public class FramesPage extends Alerts_Frames_WindowsPage{
         switchToFrameString(iFrameBigBox);
     }
 
+    private void switchToSmallBox(){
+        switchToFrameIndex(3);
+    }
+
 
     public String getTextInBigFrame(){
         switchToBigBox();
@@ -28,4 +32,17 @@ public class FramesPage extends Alerts_Frames_WindowsPage{
     public String getHeaderFramesText(){
         return find(headerFramesText).getText();
     }
+
+    public String getTextInSmallFrame(){
+        switchToSmallBox();
+        String smallFrameText = find(textInFrame).getText();
+        System.out.println("Small frame text: "  + smallFrameText);
+
+        switchToDefaultContent();
+
+        return smallFrameText;
+    }
+
+
+
 }

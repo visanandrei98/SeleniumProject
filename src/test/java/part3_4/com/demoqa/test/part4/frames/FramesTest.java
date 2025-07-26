@@ -16,4 +16,17 @@ public class FramesTest extends BaseTest {
         String expectedHeaderText = "Frames";
         Assert.assertEquals(actualHeaderText,expectedHeaderText);
     }
+
+    public void testFrameSmallBox(){
+        var framesPage = homePage.goToAlertsFramesWindowsCard().clickFrames();
+
+        String actualSmallBoxText = framesPage.getTextInSmallFrame();
+        String expectedSmallBoxText = "This is a sample page";
+        Assert.assertEquals(actualSmallBoxText,expectedSmallBoxText);
+
+        String actualHeaderText = framesPage.getHeaderFramesText();
+        String expectedHeaderText = "Frames";
+        Assert.assertEquals(actualHeaderText,expectedHeaderText);
+
+    }
 }
