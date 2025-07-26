@@ -8,6 +8,7 @@ public class FramesPage extends Alerts_Frames_WindowsPage{
     private By textInFrame = By.id("sampleHeading");
     private String iFrameBigBox = "frame1";
     private By headerFramesText = By.xpath("//div[@id='app']//h1[text()='Frames']");
+    private By iFrameSmallBox = By.xpath("//div[@id='frame2Wrapper']/iframe");
 
     private void switchToBigBox(){
 
@@ -15,7 +16,8 @@ public class FramesPage extends Alerts_Frames_WindowsPage{
     }
 
     private void switchToSmallBox(){
-        switchToFrameIndex(3);
+        //switchToFrameIndex(3);
+        switchToFrameElement(find(iFrameSmallBox));
     }
 
 
