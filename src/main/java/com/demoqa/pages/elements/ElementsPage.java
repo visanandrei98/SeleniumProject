@@ -10,6 +10,7 @@ public class ElementsPage extends HomePage {
     private By linksMenuItem = By.xpath("//li[@id='item-5']/span[text()='Links']");
     private By dynamicPropertiesMenuItem = By.xpath("//li[@id='item-8']/span[text()='Dynamic Properties']") ;
 
+
     public WebTablesPage clickWebTables(){
         click(webTablesMenuItem);
         return new WebTablesPage();
